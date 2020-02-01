@@ -11,19 +11,25 @@ namespace Inventory
 
         protected int qualityReductionFactor = 1;
 
-        public NormalItem(int sellIn, int quality)
+        public NormalItem()
+        {   
+        }
+
+        public virtual void EndOfDayUpdate(int sellIn, int quality)
         {
             // initial values for today
             SellIn = sellIn;
             Quality = quality;
-        }
-        public virtual void EndOfDayUpdate()
-        {
+            //recalc for tomorrow
             SellIn = SellIn - 1;
             if (SellIn < 0) qualityReductionFactor = qualityReductionFactor * 2;
             Quality = Quality - qualityReductionFactor;
             // reset to zero if below
             if (Quality < 1) Quality = 0;
+        }
+        public virtual string GetEndOfDayValues()
+        {
+            return $"Normal Item {SellIn} {Quality}";
         }
     }
 }

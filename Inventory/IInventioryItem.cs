@@ -5,6 +5,7 @@
         int Quality { get; }
         int SellIn {get; }
 
-        void EndOfDayUpdate();
+        void EndOfDayUpdate(int sellIn,int quality);
+        string GetEndOfDayValues();
     }
 }

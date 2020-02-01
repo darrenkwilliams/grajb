@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inventory
 {
-    public abstract class InventoryBase : IInventioryItem
+    public abstract class InventoryBase
     {
         public int Quality { get; private set; }
         public int SellIn { get; private set; }

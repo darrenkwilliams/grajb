@@ -10,49 +10,67 @@ namespace Test
         [Fact]
         public void NormalTestQuality()
         {
-            var normalItem = new NormalItem(4,5);
-            normalItem.EndOfDayUpdate();
+            var normalItem = new NormalItem();
+            normalItem.EndOfDayUpdate(4, 5);
             normalItem.Quality.ShouldBe(4);
         }
 
         [Fact]
         public void NormalTestSellin()
         {
-            var normalItem = new NormalItem(4, 5);
-            normalItem.EndOfDayUpdate();
+            var normalItem = new NormalItem();
+            normalItem.EndOfDayUpdate(4, 5);
             normalItem.SellIn.ShouldBe(3);
         }
 
         [Fact]
         public void NormalTestQualityNotBelowZero()
         {
-            var normalItem = new NormalItem(4, 0);
-            normalItem.EndOfDayUpdate();
+            var normalItem = new NormalItem();
+            normalItem.EndOfDayUpdate(4, 0);
             normalItem.Quality.ShouldBe(0);
         }
 
         [Fact]
         public void NormalTestQualityDecreasesTwiceAsFastWhenSellinNegative()
         {
-            var normalItem = new NormalItem(0, 4);
-            normalItem.EndOfDayUpdate();
+            var normalItem = new NormalItem();
+            normalItem.EndOfDayUpdate(0, 4);
             normalItem.Quality.ShouldBe(2);
         }
 
         [Fact]
         public void AgedBrieTestQuality()
         {
-            var agedBrie = new AgedBrie(4, 5);
-            agedBrie.EndOfDayUpdate();
+            var agedBrie = new AgedBrie();
+            agedBrie.EndOfDayUpdate(4, 5);
             agedBrie.Quality.ShouldBe(6);
         }
 
         [Fact]
         public void AgedBrieTestMaximumQuality()
         {
-            var agedBrie = new AgedBrie(4, 50);
-            agedBrie.EndOfDayUpdate();
+            var agedBrie = new AgedBrie();
+            agedBrie.EndOfDayUpdate(4, 50);
             agedBrie.Quality.ShouldBe(50);
+        }
+
+        [Fact]
+        public void AgedBrieTestMaximumQualityMessage()
+        {
+            var agedBrie = new AgedBrie();
+            agedBrie.EndOfDayUpdate(4, 50);
+            agedBrie.Quality.ShouldBe(50);
+            var message = agedBrie.GetEndOfDayValues();
+            message.ShouldContain("50");
+        }
+
+        [Fact]
+        public void FactoryAgedBrieTestQuality()
+        {
+            var someItem = InventoryItemFactory.GetItem("Aged Brie");
+            someItem.EndOfDayUpdate(4, 5);
+            someItem.Quality.ShouldBe(6);
         }
     }
 }

@@ -7,12 +7,17 @@ namespace Inventory
     public class AgedBrie : NormalItem
     {
 
-        public AgedBrie(int sellIn, int quality) : base(sellIn, quality)
+        public AgedBrie() 
         {
         }
 
-        public  override void EndOfDayUpdate()
+        public override void EndOfDayUpdate(int sellIn, int quality)
         {
+            // initial values for today
+            SellIn = sellIn;
+            Quality = quality;
+
+            //recalc for tomorrow
             SellIn = SellIn - 1;            
             Quality++;
             // reset to 50 if above
