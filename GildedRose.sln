@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose", "GildedRose\GildedRose.csproj", "{DAB6D362-3886-4CF2-8B44-A2F9B8CC51C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D1250BA9-354B-4399-9709-FF8F41CF72B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory", "Inventory\Inventory.csproj", "{66A6C69C-B494-4DC1-9332-F2036C31288A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAB6D362-3886-4CF2-8B44-A2F9B8CC51C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB6D362-3886-4CF2-8B44-A2F9B8CC51C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB6D362-3886-4CF2-8B44-A2F9B8CC51C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB6D362-3886-4CF2-8B44-A2F9B8CC51C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1250BA9-354B-4399-9709-FF8F41CF72B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1250BA9-354B-4399-9709-FF8F41CF72B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1250BA9-354B-4399-9709-FF8F41CF72B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1250BA9-354B-4399-9709-FF8F41CF72B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A6C69C-B494-4DC1-9332-F2036C31288A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A6C69C-B494-4DC1-9332-F2036C31288A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A6C69C-B494-4DC1-9332-F2036C31288A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A6C69C-B494-4DC1-9332-F2036C31288A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69C27A3A-5FDF-475F-9ED7-3623ED6C1A67}
+	EndGlobalSection
+EndGlobal
