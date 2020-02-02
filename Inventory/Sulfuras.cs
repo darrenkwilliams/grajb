@@ -4,12 +4,9 @@ using System.Text;
 
 namespace Inventory
 {
-    public class AgedBrie : NormalItem
+    public class Sulfuras : NormalItem
     {
-
-        public AgedBrie() 
-        {
-        }
+        public Sulfuras() { }
 
         public override void EndOfDayUpdate(int sellIn, int quality)
         {
@@ -17,17 +14,14 @@ namespace Inventory
             SellIn = sellIn;
             Quality = quality;
 
-            //recalc for tomorrow
-            SellIn = SellIn - 1;            
-            Quality++;
+            // and no update required but.....
             // reset to 50 if above
             if (Quality > 50) Quality = 50;
         }
 
         public override string GetEndOfDayValues()
         {
-            return $"Aged Brie {SellIn} {Quality}";
+            return $"Sulfuras {SellIn} {Quality}";
         }
     }
-
 }

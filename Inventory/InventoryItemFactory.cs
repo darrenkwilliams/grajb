@@ -14,9 +14,15 @@ namespace Inventory
                     return new NormalItem();
                 case "Aged Brie":
                     return new AgedBrie();
+                case "Backstage Passes":
+                    return new BackstagePasses();
+                case "Conjured":
+                    return new Conjured();
+                case "Sulfuras":
+                    return new Sulfuras();
                 default:
-                    //TODO - implement some not found concrete class?
-                    return new NormalItem();
+                    //TODO - implement some not found concrete class? return null and let calling program deal with action...
+                    return null;
             }
         }
     }

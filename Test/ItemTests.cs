@@ -16,6 +16,54 @@ namespace Test
         }
 
         [Fact]
+        public void ConjuredTestQuality()
+        {
+            var conjuredItem = new Conjured();
+            conjuredItem.EndOfDayUpdate(4, 5);
+            conjuredItem.Quality.ShouldBe(3);
+        }
+
+        [Fact]
+        public void SulfurasTestQuality()
+        {
+            var sulfurasItem = new Sulfuras();
+            sulfurasItem.EndOfDayUpdate(4, 5);
+            sulfurasItem.Quality.ShouldBe(5);
+        }
+
+        [Fact]
+        public void BackstagePassTestQualityWhereSellinGreaterThan10()
+        {
+            var backstagePass = new BackstagePasses();
+            backstagePass.EndOfDayUpdate(12, 5);
+            backstagePass.Quality.ShouldBe(6);
+        }
+
+        [Fact]
+        public void BackstagePassTestQualityWhereSellinBetween5and10()
+        {
+            var backstagePass = new BackstagePasses();
+            backstagePass.EndOfDayUpdate(9, 5);
+            backstagePass.Quality.ShouldBe(7);
+        }
+
+        [Fact]
+        public void BackstagePassTestQualityWhereSellinLessThan5()
+        {
+            var backstagePass = new BackstagePasses();
+            backstagePass.EndOfDayUpdate(4, 5);
+            backstagePass.Quality.ShouldBe(8);
+        }
+
+        [Fact]
+        public void BackstagePassTestQualityWhereSellinLess0()
+        {
+            var backstagePass = new BackstagePasses();
+            backstagePass.EndOfDayUpdate(-1, 5);
+            backstagePass.Quality.ShouldBe(0);
+        }
+
+        [Fact]
         public void NormalTestSellin()
         {
             var normalItem = new NormalItem();
