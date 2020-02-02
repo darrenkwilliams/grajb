@@ -57,7 +57,7 @@ namespace GildedRose
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Inventory}/{action=Index}/{id?}");
             });
         }
     }

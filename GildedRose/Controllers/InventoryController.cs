@@ -29,23 +29,27 @@ namespace GildedRose.Controllers
             ModelState.Clear();
             var inventoryModel = new InventoryModel();
             inventoryModel.InventoryListIn = model.InventoryListIn;
-            // get lines
-            var lines = model.InventoryListIn.Split("\r\n");
+            // do we have some input?
+            if (model.InventoryListIn != null)
+            { 
+                // get input lines
+                var lines = model.InventoryListIn.Split("\r\n");
 
-            foreach (string line in lines)
-            {
-                var itemVars = ParseInputLine(line);
-                IInventioryItem item = _inventoryFactory.GetItem(itemVars.Item1.Trim());
-                if (item == null)
+                foreach (string line in lines)
                 {
-                    inventoryModel.InventoryListOut += "NO SUCH ITEM<br/>";
+                    var itemVars = ParseInputLine(line);
+                    IInventioryItem item = _inventoryFactory.GetItem(itemVars.Item1.Trim());
+                    if (item == null)
+                    {
+                        inventoryModel.InventoryListOut += "NO SUCH ITEM<br/>";
+                    }
+                    else
+                    {
+                        item.EndOfDayUpdate(itemVars.Item2, itemVars.Item3);
+                        inventoryModel.InventoryListOut += item.GetEndOfDayValues() + "<br/>";
+                    }
                 }
-                else
-                {
-                    item.EndOfDayUpdate(itemVars.Item2, itemVars.Item3);
-                    inventoryModel.InventoryListOut += item.GetEndOfDayValues() + "<br/>";
-                }
-            }         
+            }
             
             //var inventoryModel = new InventoryModel();
             //inventoryModel.InventoryListOut = "test1<br/>test2";
