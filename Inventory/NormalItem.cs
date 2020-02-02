@@ -26,6 +26,8 @@ namespace Inventory
             Quality = Quality - qualityReductionFactor;
             // reset to zero if below
             if (Quality < 1) Quality = 0;
+            // reset to 50 if above
+            if (Quality > 50) Quality = 50;
         }
         public virtual string GetEndOfDayValues()
         {

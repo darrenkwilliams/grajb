@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Inventory
 {
-    public static class InventoryItemFactory
+    public class InventoryItemFactory : IInventoryItemFactory
     {
-        public static IInventioryItem GetItem(string itemName)
+        public IInventioryItem GetItem(string itemName)
         {
             switch (itemName)
             {
@@ -14,7 +14,7 @@ namespace Inventory
                     return new NormalItem();
                 case "Aged Brie":
                     return new AgedBrie();
-                case "Backstage Passes":
+                case "Backstage passes":
                     return new BackstagePasses();
                 case "Conjured":
                     return new Conjured();

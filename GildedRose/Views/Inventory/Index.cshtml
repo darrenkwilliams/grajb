@@ -1,7 +1,19 @@
-﻿
+﻿@model InventoryModel
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Gilded Rose</h2>
-
+<form asp-controller="Inventory" asp-action="Index" method="post">
+    <h2>Gilded Rose</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <p>Enter inventory items below</p>
+            @Html.TextAreaFor(model => model.InventoryListIn, new {@cols = 50, @rows = 10 })
+            <br />
+            <input type="submit" title="Submit" />
+        </div>
+        <div class="col-md-3">
+            <p>Results:</p>
+            @Html.Raw(@Model.InventoryListOut)
+        </div>
+    </div>
+</form>

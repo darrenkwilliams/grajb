@@ -116,7 +116,7 @@ namespace Test
         [Fact]
         public void FactoryAgedBrieTestQuality()
         {
-            var someItem = InventoryItemFactory.GetItem("Aged Brie");
+            var someItem = new InventoryItemFactory().GetItem("Aged Brie");
             someItem.EndOfDayUpdate(4, 5);
             someItem.Quality.ShouldBe(6);
         }
